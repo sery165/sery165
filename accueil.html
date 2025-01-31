@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Site Immobilier</title>
-    <link rel="stylesheet" href="{% static 'gestion_immobilier/styles.css' %}">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         .navbar {
             display: flex;
@@ -131,29 +131,26 @@
         <div class="texte-gauche">
             <h2>Nos chambres disponibles :</h2>
             <ul>
-                {% for chambre in chambres %}
+                
                     <li>
-                        <a href="{% url 'commune_chambres' commune_id=chambre.commune.id %}">
-                            {{ chambre.type_chambre.nom }} à {{ chambre.commune.nom }} - 
-                            {{ chambre.nombre_de_chambres }} chambres, 
-                            {{ chambre.nombre_de_salons }} salons
+                        <a href="html/commune_chambres.html">
                         </a>
                     </li>
-                {% empty %}
+                
                     <li>Aucune chambre disponible actuellement.</li>
-                {% endfor %}
+            
             </ul>
 
             {% if user.is_authenticated %}
-            <a href="{% url 'login' %}" class="cta-button">Se connecter pour ajouter une chambre</a>
+            <a href="html/login.html" class="cta-button">Se connecter pour ajouter une chambre</a>
             {% else %}
-                <a href="{% url 'login' %}" class="cta-button">Se connecter pour ajouter une chambre</a>
+                <a href="html/login.html" class="cta-button">Se connecter pour ajouter une chambre</a>
             {% endif %}
 
             <!-- Lien vers la page d'inscription -->
-            <a href="{% url 'ajouter_utilisateur' %}" class="cta-button">Pas encore de compte ? Inscrivez-vous ici.</a>
+            <a href="html/ajouter_utilisateur.html" class="cta-button">Pas encore de compte ? Inscrivez-vous ici.</a>
         </div>
-        <img src="{% static 'images/ZE.jpg' %}" alt="Image d'accueil" class="image-droite">
+        <img src="ZE.jpg" alt="Image d'accueil" class="image-droite">
     </div>
 </body>
 </html>
